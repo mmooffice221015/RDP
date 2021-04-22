@@ -11,6 +11,20 @@ enda='\033[0m'
 
 clear
 
+# Branding
+
+printf """$c$b
+      _____      _       _         _    _            _  
+     / ____|    | |     | |       | |  | |          | | 
+    | |     ___ | | __ _| |__     | |__| | __ _  ___| | _____ 
+    | |    / _ \| |/ _\` | '_ \    |  __  |/ _\` |/ __| |/ / __|
+    | |___| (_) | | (_| | |_) |   | |  | | (_| | (__|   <\__ \\
+     \_____\___/|_|\__,_|_.__/    |_|  |_|\__,_|\___|_|\_\___/ 
+    $r  By Pradyumna Krishna © 2020 $c Edited by https://fb.com/thuong.hai.581 (v3)
+      Github : https://github.com/PradyumnaKrishna/Colab-Hacks          
+$endc$enda""";
+
+
 
 # Used Two if else type statements, one is simple second is complex. So, don't get confused or fear by seeing complex if else statement '^^.
 
@@ -82,39 +96,39 @@ printf "\r$r$b    Error Occured $endc$enda\n" >&2
 
 
 # Install CrossOver (Run exe on linux)
-# printf "$g$b    Installing CrossOver $endc$enda" >&2
-# {
-#     wget https://media.codeweavers.com/pub/crossover/cxlinux/demo/crossover_20.0.2-1.deb
-#     sudo dpkg -i crossover_20.0.2-1.deb
-#     sudo apt install --assume-yes --fix-broken
-# } &> /dev/null &&
-# printf "\r$c$b    CrossOver Installed $endc$enda\n" >&2 ||
-# printf "\r$r$b    Error Occured $endc$enda\n" >&2
+printf "$g$b    Installing CrossOver $endc$enda" >&2
+{
+    wget https://media.codeweavers.com/pub/crossover/cxlinux/demo/crossover_20.0.2-1.deb
+    sudo dpkg -i crossover_20.0.2-1.deb
+    sudo apt install --assume-yes --fix-broken
+} &> /dev/null &&
+printf "\r$c$b    CrossOver Installed $endc$enda\n" >&2 ||
+printf "\r$r$b    Error Occured $endc$enda\n" >&2
 
 
 
 # Install OBS-Studio (Livestream)
-# printf "$g$b    Installing Obs-studio $endc$enda" >&2
-# {
-#     sudo apt install ffmpeg -y
-#     sudo add-apt-repository ppa:obsproject/obs-studio -y
-#     sudo apt install obs-studio -y
-#     sudo apt install --assume-yes --fix-broken
-# } &> /dev/null &&
-# printf "\r$c$b    OBS-Studio Installed $endc$enda\n" >&2 ||
-# printf "\r$r$b    Error Occured $endc$enda\n" >&2
+printf "$g$b    Installing Obs-studio $endc$enda" >&2
+{
+    sudo apt install ffmpeg -y
+    sudo add-apt-repository ppa:obsproject/obs-studio -y
+    sudo apt install obs-studio -y
+    sudo apt install --assume-yes --fix-broken
+} &> /dev/null &&
+printf "\r$c$b    OBS-Studio Installed $endc$enda\n" >&2 ||
+printf "\r$r$b    Error Occured $endc$enda\n" >&2
 
 # Install VLC Media Player 
-# printf "$g$b    Installing VLC Media Player $endc$enda" >&2
-# {
-#     sudo apt install vlc -y
-# } &> /dev/null &&
-# printf "\r$c$b    VLC Media Player Installed $endc$enda\n" >&2 ||
-# printf "\r$r$b    Error Occured $endc$enda\n" >&2
+printf "$g$b    Installing VLC Media Player $endc$enda" >&2
+{
+    sudo apt install vlc -y
+} &> /dev/null &&
+printf "\r$c$b    VLC Media Player Installed $endc$enda\n" >&2 ||
+printf "\r$r$b    Error Occured $endc$enda\n" >&2
 
 # Install other tools like nano
-# sudo apt-get install gdebi -y &> /dev/null
-# sudo apt-get install vim -y &> /dev/null
+sudo apt-get install gdebi -y &> /dev/null
+sudo apt-get install vim -y &> /dev/null
 printf "$g$b    Installing other Tools $endc$enda" >&2
 if sudo apt install nautilus nano -y &> /dev/null
 then
@@ -133,17 +147,10 @@ printf "\n$g$b    Installation Completed $endc$enda\n\n" >&2
 sudo adduser user chrome-remote-desktop
 
 # Finishing Work
+printf '\nVisit http://remotedesktop.google.com/headless and Copy the command after authentication\n'
+read -p "Paste Command: " CRP
 su - user -c """$CRP"""
 
-
-#Auto Install ninja
-cd /home/user/Desktop
-wget -O NSO.zip http://vietup.net/tai-tap-tin/desktop-zip/241045
-unzip -q NSO.zip
-rm NSO.zip
-cd microemulator-2.0.4
-chmod +x microemulator.jar
-
-
 printf "\n$c$b I hope everthing done correctly if mistakenly wrote wrong command or pin, Rerun the current box or run command 'su - user -c '<CRP Command Here>' $endc$enda\n" >&2
+printf "\n$c$b https://remotedesktop.google.com/access to access your VM, do not close browser tab to keep colab running ' $endc$enda\n" >&2
 printf "\n$g$b Finished Succesfully$endc$enda"
